@@ -12,8 +12,8 @@ const ModelClassiHandle = () => import('../views/ModelClassiHandle')
 const ClassiHistoryModelEnable = () => import('../views/ClassiHistoryModelEnable')
 //复杂业务识别
 const ComplexBusiModelManage = () => import('../views/complexBusiModelManage')
-const VisualModel = () => import('../views/visualModel')
-const HighLevelModel = () => import('../views/highLevelModel')
+const VisualModel = () => import('../views/complexBusiModelManage/visualModel')
+const HighLevelModel = () => import('../views/complexBusiModelManage/highLevelModel')
 //话务综合分析
 const ProcessScenarioDetails = () => import('../views/processScenarioDetails')
 const ProcessNodeDetails = () => import('../views/processNodeDetails')
@@ -31,6 +31,10 @@ const WeakWordConfiguration = () => import('../views/weakWordConfiguration')
 const OperaWeakWordConfig = () => import('../views/weakWordConfiguration/weakWordConfig.vue')
 const StopWordConfiguration = () => import('../views/stopWordConfiguration')
 const OperaStopWordConfig = () => import('../views/stopWordConfiguration/stopWordConfig.vue')
+//业务流程管理
+const RecomWords = () => import('../views/recomWords')
+const StandWords = () => import('../views/standWords')
+const NavProcess = () => import('../views/navProcess')
 //质检业务审核
 const BusinessReview = () => import('../views/businessReview')
 const BusinessAuditDetail = () => import('../views/businessReview/businessAuditDetail.vue')
@@ -165,6 +169,23 @@ const routes = [
         path: '/stopWordConfiguration/opera',
         component: OperaStopWordConfig
       },
+
+      {
+        name: 'RecomWords',
+        path: '/recomWords',
+        component: RecomWords
+      },
+      {
+        name: 'StandWords',
+        path: '/standWords',
+        component: StandWords
+      },
+      {
+        name: 'NavProcess',
+        path: '/navProcess',
+        component: NavProcess
+      },
+
       {
         name: 'BusinessReview',
         path: '/businessReview',

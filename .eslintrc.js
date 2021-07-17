@@ -1,7 +1,9 @@
+
 module.exports = {
   root: true,
   env: {
-    node: true
+    node: true,
+    jquery: true //全局配置jQuery
   },
   extends: [
     'plugin:vue/essential',

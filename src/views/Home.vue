@@ -38,8 +38,6 @@
             <el-submenu index="/complexBusinessIdent">
               <template slot="title">复杂业务识别</template>
               <el-menu-item index="/complexBusiModelManage">复杂业务模型管理</el-menu-item>
-              <el-menu-item index="/visualModel">可视化模型</el-menu-item>
-              <el-menu-item index="/highLevelModel">高级模型</el-menu-item>
             </el-submenu>
           </el-submenu>
           <el-submenu index="/2">
@@ -101,8 +99,8 @@
             <i class="el-icon-arrow-down el-icon--right"></i>
           </span>
             <el-dropdown-menu slot="dropdown">
-<!--              <el-dropdown-item icon="el-icon-setting">个人设置</el-dropdown-item>-->
-<!--              <el-dropdown-item icon="el-icon-unlock">退出登录</el-dropdown-item>-->
+              <!--              <el-dropdown-item icon="el-icon-setting">个人设置</el-dropdown-item>-->
+              <!--              <el-dropdown-item icon="el-icon-unlock">退出登录</el-dropdown-item>-->
             </el-dropdown-menu>
           </el-dropdown>
         </el-header>
@@ -130,7 +128,7 @@
 </script>
 
 <style lang="less">
-  .el-main{
+  .el-main {
     background-image: url("../assets/images/国家电网95598_logo.jpg");
     background-repeat: no-repeat;
     background-position-x: 200px;
