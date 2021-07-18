@@ -50,7 +50,7 @@
           <el-table-column
             prop="f2"
             label="文本长度"
-            width="300"
+            width="200"
             center
           />
           <el-table-column

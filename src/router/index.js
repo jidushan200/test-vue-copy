@@ -33,6 +33,7 @@ const StopWordConfiguration = () => import('../views/stopWordConfiguration')
 const OperaStopWordConfig = () => import('../views/stopWordConfiguration/stopWordConfig.vue')
 //业务流程管理
 const RecomWords = () => import('../views/recomWords')
+const RecomWords_addKnows = () => import('../views/recomWords/addKnows')
 const StandWords = () => import('../views/standWords')
 const NavProcess = () => import('../views/navProcess')
 //质检业务审核
@@ -174,6 +175,11 @@ const routes = [
         name: 'RecomWords',
         path: '/recomWords',
         component: RecomWords
+      },
+      {
+        name: 'RecomWords_addKnows',
+        path: '/recomWords/addKnows',
+        component: RecomWords_addKnows
       },
       {
         name: 'StandWords',
