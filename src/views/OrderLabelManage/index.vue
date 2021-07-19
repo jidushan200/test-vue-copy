@@ -20,7 +20,8 @@
               </el-input>
             </el-form-item>
           </el-col>
-          <i class="el-icon-circle-plus-outline el-icon-styles"></i>
+          <i class="el-icon-circle-plus-outline el-icon-styles medium-icon uncolorIcon"
+             style="line-height: 40px;"/>
         </el-row>
 
         <el-row :gutter="24" style="margin-bottom: 10px;">
@@ -169,6 +170,14 @@
     font-size: 45px;
     color: #00adff;
     cursor: pointer;
+  }
+
+  .medium-icon {
+    font-size: 30px;
+  }
+
+  .uncolorIcon {
+    color: rgba(0, 0, 0, .4);
   }
 </style>
 

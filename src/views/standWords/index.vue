@@ -6,7 +6,9 @@
       </div>
       <div class="left_content">
         <div class="title_content clearfix">
-          <i @click="addDialogEnable = true;" class="bigIcon uncolorIcon fr el-icon-circle-plus-outline"/>
+          <el-tooltip class="item" effect="dark" content="新增领域" placement="top">
+            <i @click="addDialogEnable = true;" class="bigIcon uncolorIcon fr el-icon-circle-plus-outline"/>
+          </el-tooltip>
         </div>
         <el-tree
           :data="treeData"
@@ -24,34 +26,42 @@
                   </span>
             </div>
             <div class="svg-div-hover">
-              <el-button
-                class="mediumIcon uncolorIcon"
-                type="text"
-                size="mini"
-                @click="() => append(treeData)"
-                icon="el-icon-circle-plus-outline"
-              />
-              <el-button
-                class="mediumIcon uncolorIcon"
-                type="text"
-                size="mini"
-                @click="() => eidt(treeData)"
-                icon="el-icon-edit"
-              />
-              <el-button
-                class="mediumIcon uncolorIcon"
-                type="text"
-                size="mini"
-                @click="() => remove(node, treeData)"
-                icon="el-icon-remove-outline"
-              />
+              <el-tooltip class="item" effect="dark" content="新增领域" placement="top">
+                <el-button
+                  class="mediumIcon uncolorIcon"
+                  type="text"
+                  size="mini"
+                  @click="() => append(treeData)"
+                  icon="el-icon-circle-plus-outline"
+                />
+              </el-tooltip>
+              <el-tooltip class="item" effect="dark" content="编辑领域" placement="top">
+                <el-button
+                  class="mediumIcon uncolorIcon"
+                  type="text"
+                  size="mini"
+                  @click="() => eidt(treeData)"
+                  icon="el-icon-edit"
+                />
+              </el-tooltip>
+              <el-tooltip class="item" effect="dark" content="移除领域" placement="top">
+                <el-button
+                  class="mediumIcon uncolorIcon"
+                  type="text"
+                  size="mini"
+                  @click="() => remove(node, treeData)"
+                  icon="el-icon-remove-outline"
+                />
+              </el-tooltip>
             </div>
           </div>
         </el-tree>
       </div>
       <div class="right_content">
         <div class="title_content clearfix" style="padding-bottom: 17px;margin-bottom: 21px;">
-          <i @click="addWordsDialogEnable = true" class="bigIcon uncolorIcon fr el-icon-circle-plus-outline"/>
+          <el-tooltip class="item" effect="dark" content="新增标准话术" placement="top">
+            <i @click="addWordsDialogEnable = true" class="bigIcon uncolorIcon fr el-icon-circle-plus-outline"/>
+          </el-tooltip>
         </div>
         <div class="tree-flex">
           <div class="flex1" style="overflow: visible">
@@ -74,32 +84,35 @@
                 </span>
           </div>
           <div class="svg-div-hover" style="display: block">
-
-            <el-button
-              class="mediumIcon uncolorIcon"
-              type="text"
-              size="mini"
-              @click="() => eidt(treeData_2)"
-              icon="el-icon-edit"
-            />
-            <el-button
-              class="mediumIcon uncolorIcon"
-              type="text"
-              size="mini"
-              @click="() => remove(node, treeData_2)"
-              icon="el-icon-remove-outline"
-            />
+            <el-tooltip class="item" effect="dark" content="编辑话术" placement="top">
+              <el-button
+                class="mediumIcon uncolorIcon"
+                type="text"
+                size="mini"
+                @click="() => eidt(treeData_2)"
+                icon="el-icon-edit"
+              />
+            </el-tooltip>
+            <el-tooltip class="item" effect="dark" content="移除话术" placement="top">
+              <el-button
+                class="mediumIcon uncolorIcon"
+                type="text"
+                size="mini"
+                @click="() => remove(node, treeData_2)"
+                icon="el-icon-remove-outline"
+              />
+            </el-tooltip>
           </div>
         </div>
 
         <div class="tree-flex">
           <div class="flex1" style="overflow: visible">
             <i class="el-icon-document"></i>
-            <span v-if="showEnable_1==false" @click="showEnable_1 = true">
+            <span v-if="showEnable==false" @click="showEnable = true">
               <i class="el-icon-caret-right"></i>
               <span>企业职工基本养老金计发时间与组成部分</span>
             </span>
-            <span v-if="showEnable_1==true" @click="showEnable_1 = false">
+            <span v-if="showEnable==true" @click="showEnable = false">
                   <i class="el-icon-caret-bottom"></i>
                   <span>企业职工基本养老金计发时间与组成部分</span>
                   <div class="content_page">
@@ -113,32 +126,35 @@
                 </span>
           </div>
           <div class="svg-div-hover" style="display: block">
-
-            <el-button
-              class="mediumIcon uncolorIcon"
-              type="text"
-              size="mini"
-              @click="() => eidt(treeData_2)"
-              icon="el-icon-edit"
-            />
-            <el-button
-              class="mediumIcon uncolorIcon"
-              type="text"
-              size="mini"
-              @click="() => remove(node, treeData_2)"
-              icon="el-icon-remove-outline"
-            />
+            <el-tooltip class="item" effect="dark" content="编辑话术" placement="top">
+              <el-button
+                class="mediumIcon uncolorIcon"
+                type="text"
+                size="mini"
+                @click="() => eidt(treeData_2)"
+                icon="el-icon-edit"
+              />
+            </el-tooltip>
+            <el-tooltip class="item" effect="dark" content="移除话术" placement="top">
+              <el-button
+                class="mediumIcon uncolorIcon"
+                type="text"
+                size="mini"
+                @click="() => remove(node, treeData_2)"
+                icon="el-icon-remove-outline"
+              />
+            </el-tooltip>
           </div>
         </div>
 
         <div class="tree-flex">
           <div class="flex1" style="overflow: visible">
             <i class="el-icon-document"></i>
-            <span v-if="showEnable_2==false" @click="showEnable_2 = true">
+            <span v-if="showEnable==false" @click="showEnable = true">
               <i class="el-icon-caret-right"></i>
               <span>企业职工基本养老金计发时间与组成部分</span>
             </span>
-            <span v-if="showEnable_2==true" @click="showEnable_2 = false">
+            <span v-if="showEnable==true" @click="showEnable = false">
                   <i class="el-icon-caret-bottom"></i>
                   <span>企业职工基本养老金计发时间与组成部分</span>
                   <div class="content_page">
@@ -152,21 +168,24 @@
                 </span>
           </div>
           <div class="svg-div-hover" style="display: block">
-
-            <el-button
-              class="mediumIcon uncolorIcon"
-              type="text"
-              size="mini"
-              @click="() => eidt(treeData_2)"
-              icon="el-icon-edit"
-            />
-            <el-button
-              class="mediumIcon uncolorIcon"
-              type="text"
-              size="mini"
-              @click="() => remove(node, treeData_2)"
-              icon="el-icon-remove-outline"
-            />
+            <el-tooltip class="item" effect="dark" content="编辑话术" placement="top">
+              <el-button
+                class="mediumIcon uncolorIcon"
+                type="text"
+                size="mini"
+                @click="() => eidt(treeData_2)"
+                icon="el-icon-edit"
+              />
+            </el-tooltip>
+            <el-tooltip class="item" effect="dark" content="移除话术" placement="top">
+              <el-button
+                class="mediumIcon uncolorIcon"
+                type="text"
+                size="mini"
+                @click="() => remove(node, treeData_2)"
+                icon="el-icon-remove-outline"
+              />
+            </el-tooltip>
           </div>
         </div>
       </div>
@@ -385,14 +404,12 @@
     display: -ms-flexbox;
     display: flex;
     width: 100%;
-    padding: 5px 0;
+    padding: 0;
   }
-
 
   .flex1 {
     padding-top: 6px;
     width: calc(100% - 100px);
-    height: 20px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

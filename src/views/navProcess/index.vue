@@ -6,7 +6,9 @@
       </div>
       <div class="left_content">
         <div class="title_content clearfix">
-          <i @click="addDialogEnable = true;" class="bigIcon uncolorIcon fr el-icon-circle-plus-outline"/>
+          <el-tooltip class="item" effect="dark" content="新增类别" placement="top">
+            <i @click="addDialogEnable = true;" class="bigIcon uncolorIcon fr el-icon-circle-plus-outline"/>
+          </el-tooltip>
         </div>
         <el-tree
           :data="treeData"
@@ -24,27 +26,33 @@
                   </span>
             </div>
             <div class="svg-div-hover">
-              <el-button
-                class="mediumIcon uncolorIcon"
-                type="text"
-                size="mini"
-                @click="() => append(treeData)"
-                icon="el-icon-circle-plus-outline"
-              />
-              <el-button
-                class="mediumIcon uncolorIcon"
-                type="text"
-                size="mini"
-                @click="() => eidt(treeData)"
-                icon="el-icon-edit"
-              />
-              <el-button
-                class="mediumIcon uncolorIcon"
-                type="text"
-                size="mini"
-                @click="() => remove(node, treeData)"
-                icon="el-icon-remove-outline"
-              />
+              <el-tooltip class="item" effect="dark" content="新增类别" placement="top">
+                <el-button
+                  class="mediumIcon uncolorIcon"
+                  type="text"
+                  size="mini"
+                  @click="() => append(treeData)"
+                  icon="el-icon-circle-plus-outline"
+                />
+              </el-tooltip>
+              <el-tooltip class="item" effect="dark" content="编辑类别" placement="top">
+                <el-button
+                  class="mediumIcon uncolorIcon"
+                  type="text"
+                  size="mini"
+                  @click="() => eidt(treeData)"
+                  icon="el-icon-edit"
+                />
+              </el-tooltip>
+              <el-tooltip class="item" effect="dark" content="移除类别" placement="top">
+                <el-button
+                  class="mediumIcon uncolorIcon"
+                  type="text"
+                  size="mini"
+                  @click="() => remove(node, treeData)"
+                  icon="el-icon-remove-outline"
+                />
+              </el-tooltip>
             </div>
           </div>
         </el-tree>
@@ -52,7 +60,9 @@
       <div class="right_content">
         <div class="title_content clearfix" style="padding-bottom: 17px;margin-bottom: 21px;">
           <span>擅自接线</span>
-          <i @click="addNodeEnable = true" class="bigIcon uncolorIcon fr el-icon-circle-plus-outline"/>
+          <el-tooltip class="item" effect="dark" content="新增类别" placement="top">
+            <i @click="addNodeEnable = true" class="bigIcon uncolorIcon fr el-icon-circle-plus-outline"/>
+          </el-tooltip>
         </div>
         <div>
           <div class="block">
@@ -67,36 +77,46 @@
                   {{activity.content}}
                 </span>
                 <div class="svg-div-hover-2">
-                  <el-button
-                    class="mediumIcon uncolorIcon"
-                    type="text"
-                    size="mini"
-                    icon="el-icon-top"
-                  />
-                  <el-button
-                    class="mediumIcon uncolorIcon"
-                    type="text"
-                    size="mini"
-                    icon="el-icon-bottom"
-                  />
-                  <el-button
-                    class="mediumIcon uncolorIcon"
-                    type="text"
-                    size="mini"
-                    icon="el-icon-circle-plus-outline"
-                  />
-                  <el-button
-                    class="mediumIcon uncolorIcon"
-                    type="text"
-                    size="mini"
-                    icon="el-icon-edit"
-                  />
-                  <el-button
-                    class="mediumIcon uncolorIcon"
-                    type="text"
-                    size="mini"
-                    icon="el-icon-remove-outline"
-                  />
+                  <el-tooltip class="item" effect="dark" content="上移" placement="top">
+                    <el-button
+                      class="mediumIcon uncolorIcon"
+                      type="text"
+                      size="mini"
+                      icon="el-icon-top"
+                    />
+                  </el-tooltip>
+                  <el-tooltip class="item" effect="dark" content="下移" placement="top">
+                    <el-button
+                      class="mediumIcon uncolorIcon"
+                      type="text"
+                      size="mini"
+                      icon="el-icon-bottom"
+                    />
+                  </el-tooltip>
+                  <el-tooltip class="item" effect="dark" content="新增类别" placement="top">
+                    <el-button
+                      class="mediumIcon uncolorIcon"
+                      type="text"
+                      size="mini"
+                      icon="el-icon-circle-plus-outline"
+                    />
+                  </el-tooltip>
+                  <el-tooltip class="item" effect="dark" content="编辑类别" placement="top">
+                    <el-button
+                      class="mediumIcon uncolorIcon"
+                      type="text"
+                      size="mini"
+                      icon="el-icon-edit"
+                    />
+                  </el-tooltip>
+                  <el-tooltip class="item" effect="dark" content="移除类别" placement="top">
+                    <el-button
+                      class="mediumIcon uncolorIcon"
+                      type="text"
+                      size="mini"
+                      icon="el-icon-remove-outline"
+                    />
+                  </el-tooltip>
                 </div>
               </el-timeline-item>
             </el-timeline>
@@ -227,12 +247,12 @@
       ]
       return {
         addNodeEnable: false,
-        newNodeForm:{
-          f1:'擅自接线',
-          f2:'举报',
-          f3:'',
-          f4:'主节点',
-          f5:''
+        newNodeForm: {
+          f1: '擅自接线',
+          f2: '举报',
+          f3: '',
+          f4: '主节点',
+          f5: ''
         },
         showEnable: false,
         showEnable_1: false,
@@ -270,7 +290,7 @@
 </script>
 
 <style scoped>
-  .svg-div-hover-2{
+  .svg-div-hover-2 {
     float: right;
     margin-right: 35%;
     position: relative;
@@ -282,7 +302,7 @@
     left: 30%;
   }
 
-  .medium_dialog{
+  .medium_dialog {
 
   }
 
@@ -326,14 +346,13 @@
     display: -ms-flexbox;
     display: flex;
     width: 100%;
-    padding: 5px 0;
+    padding: 0;
   }
 
 
   .flex1 {
     padding-top: 6px;
     width: calc(100% - 100px);
-    height: 20px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

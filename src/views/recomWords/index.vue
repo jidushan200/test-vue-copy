@@ -6,7 +6,9 @@
       </div>
       <div class="left_content">
         <div class="title_content clearfix">
-          <i @click="addDialogEnable = true" class="bigIcon uncolorIcon fr el-icon-circle-plus-outline"/>
+          <el-tooltip class="item" effect="dark" content="新增领域" placement="top">
+            <i @click="addDialogEnable = true" class="bigIcon uncolorIcon fr el-icon-circle-plus-outline"/>
+          </el-tooltip>
         </div>
         <el-tree
           :data="treeData"
@@ -14,44 +16,54 @@
           :expand-on-click-node="false"
         >
           <div
-            @mouseover="showIconFn"
-            @mouseout="hideIconFn"
-            slot-scope="{ node, treeData }" class="tree-flex"
+            @mouseover.stop="showIconFn"
+            @mouseout.stop="hideIconFn"
+            slot-scope="{ node, treeData }"
+            class="tree-flex"
+            tar="tree-flex"
           >
-            <div class="flex1">
-                  <span>
-                    {{node.label}}
-                  </span>
+            <div class="flex1" tar="flex1">
+              <span>
+                {{node.label}}
+              </span>
             </div>
             <div class="svg-div-hover">
-              <el-button
-                class="mediumIcon uncolorIcon"
-                type="text"
-                size="mini"
-                @click="() => append(treeData)"
-                icon="el-icon-circle-plus-outline"
-              />
-              <el-button
-                class="mediumIcon uncolorIcon"
-                type="text"
-                size="mini"
-                @click="() => eidt(treeData)"
-                icon="el-icon-edit"
-              />
-              <el-button
-                class="mediumIcon uncolorIcon"
-                type="text"
-                size="mini"
-                @click="() => remove(node, treeData)"
-                icon="el-icon-remove-outline"
-              />
+              <el-tooltip class="item" effect="dark" content="新增领域" placement="top">
+                <el-button
+                  class="mediumIcon uncolorIcon"
+                  type="text"
+                  size="mini"
+                  @click="() => append(treeData)"
+                  icon="el-icon-circle-plus-outline"
+                />
+              </el-tooltip>
+              <el-tooltip class="item" effect="dark" content="编辑领域" placement="top">
+                <el-button
+                  class="mediumIcon uncolorIcon"
+                  type="text"
+                  size="mini"
+                  @click="() => eidt(treeData)"
+                  icon="el-icon-edit"
+                />
+              </el-tooltip>
+              <el-tooltip class="item" effect="dark" content="删除领域" placement="top">
+                <el-button
+                  class="mediumIcon uncolorIcon"
+                  type="text"
+                  size="mini"
+                  @click="() => remove(node, treeData)"
+                  icon="el-icon-remove-outline"
+                />
+              </el-tooltip>
             </div>
           </div>
         </el-tree>
       </div>
       <div class="right_content">
         <div class="title_content clearfix" style="padding-bottom: 17px;margin-bottom: 21px;">
-          <i @click="routerPush_addKnows" class="bigIcon uncolorIcon fr el-icon-circle-plus-outline"/>
+          <el-tooltip class="item" effect="dark" content="新增知识" placement="top">
+            <i @click="routerPush_addKnows" class="bigIcon uncolorIcon fr el-icon-circle-plus-outline"/>
+          </el-tooltip>
         </div>
         <div class="tree-flex">
           <div class="flex1" style="overflow: visible">
@@ -61,34 +73,37 @@
               <span>企业职工基本养老金计发时间与组成部分</span>
             </span>
             <span v-if="showEnable==true" @click="showEnable = false">
-                  <i class="el-icon-caret-bottom"></i>
-                  <span>企业职工基本养老金计发时间与组成部分</span>
-                  <div class="content_page">
-                    <p>企业职工基本养老金的组成</p>
-                    <p>基本养老金由基础养老金和个人账户养老金组成：</p>
-                    <p>（一）基础养老金以本人退休时全省上一年度在岗职工月平均工资和本人指数化月平均缴费工资的平均值为基数，缴费每满1年（不足1年的缴费月数折算为年）发给1%；</p>
-                    <p>（二）个人账户养老金按照本人个人账户的累计储存额除以计发月数确定。计发月数标准，按照国家规定执行。</p>
-                    <p>企业职工基本养老金计发时间</p>
-                    <p>符合规定条件的参保人员，从劳动保障行政部门核定的退休时间之次月起，由社会保险经办机构委托银行等机构按月发给基本养老金。</p>
-                  </div>
-                </span>
+              <i class="el-icon-caret-bottom"></i>
+              <span>企业职工基本养老金计发时间与组成部分</span>
+              <div class="content_page">
+                <p>企业职工基本养老金的组成</p>
+                <p>基本养老金由基础养老金和个人账户养老金组成：</p>
+                <p>（一）基础养老金以本人退休时全省上一年度在岗职工月平均工资和本人指数化月平均缴费工资的平均值为基数，缴费每满1年（不足1年的缴费月数折算为年）发给1%；</p>
+                <p>（二）个人账户养老金按照本人个人账户的累计储存额除以计发月数确定。计发月数标准，按照国家规定执行。</p>
+                <p>企业职工基本养老金计发时间</p>
+                <p>符合规定条件的参保人员，从劳动保障行政部门核定的退休时间之次月起，由社会保险经办机构委托银行等机构按月发给基本养老金。</p>
+              </div>
+            </span>
           </div>
           <div class="svg-div-hover" style="display: block">
-
-            <el-button
-              class="mediumIcon uncolorIcon"
-              type="text"
-              size="mini"
-              @click="() => eidt(treeData_2)"
-              icon="el-icon-edit"
-            />
-            <el-button
-              class="mediumIcon uncolorIcon"
-              type="text"
-              size="mini"
-              @click="() => remove(node, treeData_2)"
-              icon="el-icon-remove-outline"
-            />
+            <el-tooltip class="item" effect="dark" content="编辑知识" placement="top">
+              <el-button
+                class="mediumIcon uncolorIcon"
+                type="text"
+                size="mini"
+                @click="() => eidt(treeData_2)"
+                icon="el-icon-edit"
+              />
+            </el-tooltip>
+            <el-tooltip class="item" effect="dark" content="删除知识" placement="top">
+              <el-button
+                class="mediumIcon uncolorIcon"
+                type="text"
+                size="mini"
+                @click="() => remove(node, treeData_2)"
+                icon="el-icon-remove-outline"
+              />
+            </el-tooltip>
           </div>
         </div>
         <div class="tree-flex">
@@ -99,34 +114,37 @@
               <span>企业职工基本养老金计发时间与组成部分</span>
             </span>
             <span v-if="showEnable_1==true" @click="showEnable_1 = false">
-                  <i class="el-icon-caret-bottom"></i>
-                  <span>企业职工基本养老金计发时间与组成部分</span>
-                  <div class="content_page">
-                    <p>企业职工基本养老金的组成</p>
-                    <p>基本养老金由基础养老金和个人账户养老金组成：</p>
-                    <p>（一）基础养老金以本人退休时全省上一年度在岗职工月平均工资和本人指数化月平均缴费工资的平均值为基数，缴费每满1年（不足1年的缴费月数折算为年）发给1%；</p>
-                    <p>（二）个人账户养老金按照本人个人账户的累计储存额除以计发月数确定。计发月数标准，按照国家规定执行。</p>
-                    <p>企业职工基本养老金计发时间</p>
-                    <p>符合规定条件的参保人员，从劳动保障行政部门核定的退休时间之次月起，由社会保险经办机构委托银行等机构按月发给基本养老金。</p>
-                  </div>
-                </span>
+              <i class="el-icon-caret-bottom"></i>
+              <span>企业职工基本养老金计发时间与组成部分</span>
+              <div class="content_page">
+                <p>企业职工基本养老金的组成</p>
+                <p>基本养老金由基础养老金和个人账户养老金组成：</p>
+                <p>（一）基础养老金以本人退休时全省上一年度在岗职工月平均工资和本人指数化月平均缴费工资的平均值为基数，缴费每满1年（不足1年的缴费月数折算为年）发给1%；</p>
+                <p>（二）个人账户养老金按照本人个人账户的累计储存额除以计发月数确定。计发月数标准，按照国家规定执行。</p>
+                <p>企业职工基本养老金计发时间</p>
+                <p>符合规定条件的参保人员，从劳动保障行政部门核定的退休时间之次月起，由社会保险经办机构委托银行等机构按月发给基本养老金。</p>
+              </div>
+            </span>
           </div>
           <div class="svg-div-hover" style="display: block">
-
-            <el-button
-              class="mediumIcon uncolorIcon"
-              type="text"
-              size="mini"
-              @click="() => eidt(treeData_2)"
-              icon="el-icon-edit"
-            />
-            <el-button
-              class="mediumIcon uncolorIcon"
-              type="text"
-              size="mini"
-              @click="() => remove(node, treeData_2)"
-              icon="el-icon-remove-outline"
-            />
+            <el-tooltip class="item" effect="dark" content="编辑知识" placement="top">
+              <el-button
+                class="mediumIcon uncolorIcon"
+                type="text"
+                size="mini"
+                @click="() => eidt(treeData_2)"
+                icon="el-icon-edit"
+              />
+            </el-tooltip>
+            <el-tooltip class="item" effect="dark" content="删除知识" placement="top">
+              <el-button
+                class="mediumIcon uncolorIcon"
+                type="text"
+                size="mini"
+                @click="() => remove(node, treeData_2)"
+                icon="el-icon-remove-outline"
+              />
+            </el-tooltip>
           </div>
         </div>
         <div class="tree-flex">
@@ -137,34 +155,37 @@
               <span>企业职工基本养老金计发时间与组成部分</span>
             </span>
             <span v-if="showEnable_2==true" @click="showEnable_2 = false">
-                  <i class="el-icon-caret-bottom"></i>
-                  <span>企业职工基本养老金计发时间与组成部分</span>
-                  <div class="content_page">
-                    <p>企业职工基本养老金的组成</p>
-                    <p>基本养老金由基础养老金和个人账户养老金组成：</p>
-                    <p>（一）基础养老金以本人退休时全省上一年度在岗职工月平均工资和本人指数化月平均缴费工资的平均值为基数，缴费每满1年（不足1年的缴费月数折算为年）发给1%；</p>
-                    <p>（二）个人账户养老金按照本人个人账户的累计储存额除以计发月数确定。计发月数标准，按照国家规定执行。</p>
-                    <p>企业职工基本养老金计发时间</p>
-                    <p>符合规定条件的参保人员，从劳动保障行政部门核定的退休时间之次月起，由社会保险经办机构委托银行等机构按月发给基本养老金。</p>
-                  </div>
-                </span>
+              <i class="el-icon-caret-bottom"></i>
+              <span>企业职工基本养老金计发时间与组成部分</span>
+              <div class="content_page">
+                <p>企业职工基本养老金的组成</p>
+                <p>基本养老金由基础养老金和个人账户养老金组成：</p>
+                <p>（一）基础养老金以本人退休时全省上一年度在岗职工月平均工资和本人指数化月平均缴费工资的平均值为基数，缴费每满1年（不足1年的缴费月数折算为年）发给1%；</p>
+                <p>（二）个人账户养老金按照本人个人账户的累计储存额除以计发月数确定。计发月数标准，按照国家规定执行。</p>
+                <p>企业职工基本养老金计发时间</p>
+                <p>符合规定条件的参保人员，从劳动保障行政部门核定的退休时间之次月起，由社会保险经办机构委托银行等机构按月发给基本养老金。</p>
+              </div>
+            </span>
           </div>
           <div class="svg-div-hover" style="display: block">
-
-            <el-button
-              class="mediumIcon uncolorIcon"
-              type="text"
-              size="mini"
-              @click="() => eidt(treeData_2)"
-              icon="el-icon-edit"
-            />
-            <el-button
-              class="mediumIcon uncolorIcon"
-              type="text"
-              size="mini"
-              @click="() => remove(node, treeData_2)"
-              icon="el-icon-remove-outline"
-            />
+            <el-tooltip class="item" effect="dark" content="编辑知识" placement="top">
+              <el-button
+                class="mediumIcon uncolorIcon"
+                type="text"
+                size="mini"
+                @click="() => eidt(treeData_2)"
+                icon="el-icon-edit"
+              />
+            </el-tooltip>
+            <el-tooltip class="item" effect="dark" content="删除知识" placement="top">
+              <el-button
+                class="mediumIcon uncolorIcon"
+                type="text"
+                size="mini"
+                @click="() => remove(node, treeData_2)"
+                icon="el-icon-remove-outline"
+              />
+            </el-tooltip>
           </div>
         </div>
       </div>
@@ -264,42 +285,56 @@
         showEnable: false,
         showEnable_1: false,
         showEnable_2: false,
-        addDialogEnable:false,
+        addDialogEnable: false,
         treeData: JSON.parse(JSON.stringify(treeDatasrc)),
-        newAddDialogForm:{},
+        newAddDialogForm: {},
       }
     },
     methods: {
-      routerPush_addKnows(){
-        this.$router.push("/recomWords/addKnows");
+      routerPush_addKnows () {
+        this.$router.push('/recomWords/addKnows')
       },
       showIconFn (e) {
-        $($(e.target).parent()).mouseover(function () {
-          $(this).find('.svg-div-hover').show()
-        })
+        console.log($($(e.target).parent()))
+        if ($($(e.target).parent()).attr('tar') == 'tree-flex') {
+          $($(e.target).parent()).mouseover(function () {
+            $(this).find('.svg-div-hover').show()
+          })
+        } else if ($($(e.target).parent()).attr('tar') == 'flex1') {
+          $($(e.target).parent().parent()).mouseover(function () {
+            $(this).find('.svg-div-hover').show()
+          })
+        }
       }
       ,
       hideIconFn (e) {
-        $($(e.target).parent()).mouseout(function () {
-          $(this).find('.svg-div-hover').hide()
-        })
+        if ($($(e.target).parent()).attr('tar') == 'tree-flex') {
+          $($(e.target).parent()).mouseout(function () {
+            $(this).find('.svg-div-hover').hide()
+          })
+        } else if ($($(e.target).parent()).attr('tar') == 'flex1') {
+          $($(e.target).parent().parent()).mouseover(function () {
+            $(this).find('.svg-div-hover').hide()
+          })
+        }
       }
     }
   }
 </script>
 
 <style scoped>
-  .small_dialog{
-  width: 50%;left: 30%;
+  .small_dialog {
+    width: 50%;
+    left: 30%;
   }
 
-  .content_page{
+  .content_page {
     padding-left: 32px;
     box-sizing: border-box;
     width: 90%;
   }
 
-  .content_page p{
+  .content_page p {
     white-space: normal;
   }
 
@@ -333,14 +368,13 @@
     display: -ms-flexbox;
     display: flex;
     width: 100%;
-    padding: 5px 0;
+    padding: 0;
   }
 
 
   .flex1 {
     padding-top: 6px;
     width: calc(100% - 100px);
-    height: 20px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

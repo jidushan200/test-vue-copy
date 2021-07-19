@@ -64,32 +64,31 @@
             width="55">
           </el-table-column>
           <el-table-column
-            type="index"
-            label="序号"
-            width="70">
-          </el-table-column>
-          <el-table-column
+            align="center"
             prop="f1"
-            label="质检模型名称"
+            label="审核类型"
             width="200">
           </el-table-column>
           <el-table-column
+            align="center"
             prop="f2"
-            label="模型类别"
+            label="审核事项"
             width="100"
           >
           </el-table-column>
           <el-table-column
+            align="center"
             prop="f3"
-            label="状态"
-            width="80"
+            label="审核说明"
+            width="120"
             show-overflow-tooltip>
           </el-table-column>
           <el-table-column
+            align="center"
             sortable
             prop="f3"
             label="状态"
-            width="100"
+            width="120"
           >
             <template slot-scope="scope">
               <div v-if="scope.row.f3==0"><span style="color: #F56C6C;margin-right: 5px;">●</span>未生效</div>
@@ -97,34 +96,23 @@
               <div v-if="scope.row.f3==2"><span style="color: #409EFF;margin-right: 5px;">●</span>编辑中</div>
             </template>
           </el-table-column>
-
           <el-table-column
+            align="center"
             prop="f4"
-            label="生效时间"
+            label="接收时间"
             width="200"
             show-overflow-tooltip>
           </el-table-column>
           <el-table-column
+            align="center"
             label="操作"
             width="200">
             <template slot-scope="scope">
               <el-button
-                @click.native.prevent="editRow(scope.$index, tableData)"
+                @click.native.prevent="detailRow(scope.$index, scope.row)"
                 type="text"
                 size="small">
-                编辑
-              </el-button>
-              <el-button
-                @click.native.prevent="submitRow(scope.$index, tableData)"
-                type="text"
-                size="small">
-                提交
-              </el-button>
-              <el-button
-                @click.native.prevent="deleteRow(scope.$index, tableData)"
-                type="text"
-                size="small">
-                删除
+                详情
               </el-button>
             </template>
           </el-table-column>
@@ -216,6 +204,9 @@
       handleSizeChange (val) {
       },
       handleCurrentChange (val) {
+      },
+      detailRow (index, row) {
+        this.$router.push('/businessReview/detail')
       }
     }
   }
